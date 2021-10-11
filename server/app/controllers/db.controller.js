@@ -2,7 +2,7 @@ const db = require("../models");
 const Selector = db.list_table;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Tutorial
+// Create and Save a new item
 exports.create = (req, res) => {
   // Validate request
   if (!req.body.title) {
@@ -12,7 +12,7 @@ exports.create = (req, res) => {
     return;
   }
 
-  // Create a Tutorial
+  // Create an item
   const input = {
     title: req.body.title,
     price: req.body.price,
@@ -21,7 +21,7 @@ exports.create = (req, res) => {
     available: req.body.available ? req.body.available : false,
   };
 
-  // Save Tutorial in the database
+  // Save item in the database
   Selector.create(input)
     .then((data) => {
       res.send(data);
