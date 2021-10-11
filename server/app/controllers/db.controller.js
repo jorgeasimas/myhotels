@@ -13,7 +13,7 @@ exports.create = (req, res) => {
   }
 
   // Create a Tutorial
-  const tutorial = {
+  const input = {
     title: req.body.title,
     price: req.body.price,
     location: req.body.location,
@@ -22,14 +22,13 @@ exports.create = (req, res) => {
   };
 
   // Save Tutorial in the database
-  Selector.create(tutorial)
+  Selector.create(input)
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Tutorial.",
+        message: err.message || "Some error occurred while creating the items.",
       });
     });
 };
@@ -45,13 +44,12 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving tutorials.",
+        message: err.message || "Some error occurred while retrieving items.",
       });
     });
 };
 
-// Find a single Tutorial with an id
+// Find a single item with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
@@ -66,7 +64,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update a Tutorial by the id in the request
+// Update a item by the id in the request
 exports.update = (req, res) => {
   const id = req.params.id;
 
@@ -80,18 +78,18 @@ exports.update = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found or req.body is empty!`,
+          message: `Cannot update item with id=${id}. Maybe item was not found or req.body is empty!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error updating Tutorial with id=" + id,
+        message: "Error updating item with id=" + id,
       });
     });
 };
 
-// Delete a Tutorial with the specified id in the request
+// Delete a item with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
@@ -101,48 +99,46 @@ exports.delete = (req, res) => {
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Tutorial was deleted successfully!",
+          message: "Item was deleted successfully!",
         });
       } else {
         res.send({
-          message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`,
+          message: `Cannot delete item with id=${id}. Maybe item was not found!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete Tutorial with id=" + id,
+        message: "Could not delete item with id=" + id,
       });
     });
 };
 
-// Delete all Tutorials from the database.
+// Delete all items from the database.
 exports.deleteAll = (req, res) => {
   Selector.destroy({
     where: {},
     truncate: false,
   })
     .then((nums) => {
-      res.send({ message: `${nums} Tutorials were deleted successfully!` });
+      res.send({ message: `${nums} All items were deleted successfully!` });
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all tutorials.",
+        message: err.message || "Some error occurred while removing all items.",
       });
     });
 };
 
-// find all published Tutorial
+// find all available items
 exports.findAllPublished = (req, res) => {
-  Selector.findAll({ where: { published: true } })
+  Selector.findAll({ where: { available: true } })
     .then((data) => {
       res.send(data);
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving tutorials.",
+        message: err.message || "Some error occurred while retrieving items.",
       });
     });
 };

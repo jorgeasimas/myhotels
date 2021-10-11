@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+.container-edit {
+  width: max(1225px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cont {
+  width: 700px;
+  margin: 20px auto;
+}
+
+.col-6 {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr 0.5fr 0.5fr 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  justify-content: left;
+  height: 50px;
+  border-top: 4px solid black;
+}
+
+.label {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr 0.5fr 0.5fr 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+  justify-self: center;
+  height: 50px;
+  background-color: rgb(100, 98, 98);
+  color: white;
+}

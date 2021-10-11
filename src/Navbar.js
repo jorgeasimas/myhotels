@@ -7,9 +7,9 @@ export function Navbar() {
       <Link className="home" to="/">
         Home
       </Link>
-      <a href="" className="sign-in">
+      <Link className="sign-in" to='/edit'>
         Sign-in
-      </a>
+      </Link>
       <a href="" className="shop">
         Meetings & Events
       </a>
