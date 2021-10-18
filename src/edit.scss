@@ -9,13 +9,20 @@ body {
   line-height: 1.4;
 }
 
-.container-edit {
+.edit-page {
+  font-family: sans-serif;
   width: max(1225px);
   margin-left: auto;
   margin-right: auto;
 }
 
-.cont {
+.container-edit {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.table {
   width: 700px;
   margin: 20px auto;
 }
@@ -39,4 +46,52 @@ body {
   height: 50px;
   background-color: rgb(100, 98, 98);
   color: white;
+}
+
+.add-field {
+  width: 400px;
+  margin: 20px auto;
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+.add-item {
+  background-color: darkviolet;
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+}
+
+.input-form {
+  display: block;
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+.input-field {
+  margin: 0 auto;
+  width: max(300px);
+  padding-bottom: 20px;
+}
+.input-field label {
+  width: 300px;
+  font-weight: bolder;
+}
+.input-field input {
+  width: 300px;
+  height: 36px;
+  font-size: 18px;
+  color: black;
+}
+
+.input-field input:focus {
+  background-color: rgb(111, 160, 161);
+}
+
+.save-inputs {
+  margin-left: 220px;
+  margin-right: 10px;
+}
+
+.clear-inputs {
+  margin-right: 30px;
 }
